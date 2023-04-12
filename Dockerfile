@@ -1,7 +1,7 @@
-FROM nose:16
+FROM node:16
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /liatrio
 
 # Copy app dependencies to container
 COPY ./package*.json ./
@@ -13,4 +13,11 @@ ENV PATH /liatrio/node_modules/.bin:$PATH
 RUN npm install
 
 # Deploy app for local development
-CMD npm start --host 0.0.0.0 --port 3000 --disableHostCheck true
+CMD npm start 
+
+
+
+
+
+
+
