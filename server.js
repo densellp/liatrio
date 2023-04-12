@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Hello world app listening on port ${PORT}`); //ask which host/port this endpoint should interact with
+  console.log(`App listening on port ${PORT}`); //ask which host/port this endpoint should interact with
 });
 
