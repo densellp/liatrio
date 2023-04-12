@@ -13,7 +13,8 @@ env:
 
 jobs:
   
-  build: do i even need to build here if im going to build and push in one command later?
+  build:
+    
     runs-on: ubuntu-latest
 
     steps:
