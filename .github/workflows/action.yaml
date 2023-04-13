@@ -15,5 +15,5 @@ jobs:
         run: docker build --tag liatrio:$(date +%s) .
 
       - name: Run Tests
-      - uses: liatrio/github-actions/apprentice-action@master
+        uses: liatrio/github-actions/apprentice-action@master
         run: docker run -p 80:80 -it liatrio
