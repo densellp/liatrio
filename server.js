@@ -11,9 +11,10 @@ const app = express();
 
 app.get('/', (req, res) => {
     res.json({ 
-        "message": "Greetings! My name is Eesha Gadhia", 
+        "message": "My name is Eesha Gadhia", 
         "timestamp" : new Date()
     });
+    res.status(200);
 });
 
 app.listen(PORT, () => {
