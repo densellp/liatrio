@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Docker Image
-        run: docker run -p 80:80 -it liatrio
+        run: docker run -p 80:80 liatrio
   test:
     runs-on: ubuntu-latest
     steps:
