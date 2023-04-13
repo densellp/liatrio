@@ -10,11 +10,12 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get('/', (req, res) => {
-    res.json({ 
+  res.status(200);  
+  res.json({ 
         "message": "My name is Eesha Gadhia", 
         "timestamp" : new Date()
     });
-    res.status(200);
+    
 });
 
 app.listen(PORT, () => {
