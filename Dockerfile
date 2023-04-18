@@ -14,7 +14,7 @@ RUN npm install
 
 
 # Deploy app for local development
-CMD npm start --host 0.0.0.0 --disableHostCheck true
+CMD npm start
 
 
 
