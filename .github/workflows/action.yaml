@@ -13,11 +13,7 @@ jobs:
       - uses: actions/checkout@v2 
       - name: Build Docker Image
         run: docker build --tag liatrio .
-      - name: Run Docker Image
-        run: docker run -p 80:80 liatrio 
-  
-  test:
-    runs-on: ubuntu-latest
-    steps:
       - name: Run Tests
         uses: liatrio/github-actions/apprentice-action@master 
+
+       
