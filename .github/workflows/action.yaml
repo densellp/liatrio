@@ -3,25 +3,18 @@ name: Apprenticeship App Unit Tests
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 
 
 jobs:
-  build:
+  build-and-run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
       - name: Build Docker Image
         run: docker build --tag liatrio .
-
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: Run Docker Image
-        run: docker run -p 80:80 liatrio
+        run: docker run -p 80:80 liatrio 
   
   test:
     runs-on: ubuntu-latest
