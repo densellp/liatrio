@@ -12,7 +12,7 @@ const app = express();
 app.get('/', (req, res) => {
   res.json({
     "message": "My name is Eesha Gadhia", 
-    "timestamp" : new Date()
+    "timestamp" : Date.now()
   });
 });
 
