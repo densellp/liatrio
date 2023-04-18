@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: ["main"]
 
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: ${{gadhiaeesha/liatrio}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,6 +24,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Docker Image
         run: docker run -p 80:80 liatrio
+  
   test:
     runs-on: ubuntu-latest
     steps:
