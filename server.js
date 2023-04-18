@@ -10,7 +10,7 @@ const PORT = 80;
 const app = express();
 
 app.get('/', (req, res) => {
-  res.status(200).json({
+  res.json({
     "message": "My name is Eesha Gadhia", 
     "timestamp" : new Date()
   });
