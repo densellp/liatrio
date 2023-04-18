@@ -7,12 +7,18 @@ on:
 
 
 jobs:
-  build-and-run:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
       - name: Build Docker Image
         run: docker build --tag liatrio .
+      
+  run-tests:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Run Docker Image
         run: docker run -dp 80:80 liatrio
       - name: Run Tests
