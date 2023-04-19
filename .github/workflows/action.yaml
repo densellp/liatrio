@@ -17,13 +17,16 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build --tag liatrio:${{ secrets.DOCKER_USERNAME }}/liatrio-exercise .
+        run: docker build --tag liatrio:latest .
 
       - name: Run Docker Image
         run: docker run -dp 80:80 liatrio
       
       - name: Run Tests
         uses: liatrio/github-actions/apprentice-action@master
+
+      - name: Tag Docker Image
+        run: docker tag liatrio:latest ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
 
       - name: Push Image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
