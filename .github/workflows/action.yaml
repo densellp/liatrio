@@ -12,9 +12,6 @@ jobs:
 
       - name: Build Docker Image
         run: docker build --tag liatrio .
-      
-      - name: Tag Docker Image
-        run: docker tag liatrio:latest ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -27,6 +24,9 @@ jobs:
       
       - name: Run Tests
         uses: liatrio/github-actions/apprentice-action@master
+
+      - name: Tag Docker Image
+        run: docker tag liatrio:latest ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
 
       - name: Push Image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
