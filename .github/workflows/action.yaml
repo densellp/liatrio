@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build --tag liatrio .
+        run: docker build --tag liatrio:latest ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest .
 
       - name: Run Docker Image
         run: docker run -dp 80:80 liatrio
