@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       - name: Build Docker Image
-        run: docker build --tag liatrio-exercise .
+        run: docker build --tag liatrio .
       - name: Run Docker Image
-        run: docker run -dp 80:80 liatrio-exercise
+        run: docker run -dp 80:80 liatrio
       - name: Run Tests
-        uses: liatrio-exercise/github-actions/apprentice-action@master
+        uses: liatrio/github-actions/apprentice-action@master
       
   #run-tests: * Attempt to use dependencies within workflow *
   # needs: build
