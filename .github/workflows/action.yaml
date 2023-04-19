@@ -16,7 +16,7 @@ jobs:
       - name: Run Docker Image
         run: docker run -dp 80:80 liatrio-exercise
       - name: Run Tests
-        uses: liatrio/github-actions/apprentice-action@master
+        uses: liatrio-exercise/github-actions/apprentice-action@master
       
   #run-tests: * Attempt to use dependencies within workflow *
   # needs: build
