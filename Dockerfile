@@ -1,13 +1,13 @@
 FROM node:16
 
 # Create app directory
-WORKDIR /liatrio
+WORKDIR /liatrio-exercise
 
 # Copy app dependencies to container
 COPY ./* ./
 
 # Add `/app/node_modules/.bin` to $PATH
-ENV PATH /liatrio/node_modules/.bin:$PATH
+ENV PATH /liatrio-exercise/node_modules/.bin:$PATH
 
 # Install dependencies
 RUN npm install
