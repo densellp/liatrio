@@ -31,14 +31,4 @@ jobs:
       - name: Push Image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
 
-        
-      
-  #run-tests: * Attempt to use dependencies within workflow *
-  # needs: build
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v2
-  #    - name: Run Docker Image
-  #      run: docker run -dp 80:80 liatrio
-  #    - name: Run Tests
-  #      uses: liatrio/github-actions/apprentice-action@master
+
