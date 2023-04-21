@@ -1,5 +1,7 @@
 'use strict';
 
+//var http = require('http'); //used for http
+
 const express = require('express');
 
 // Constants
@@ -15,6 +17,16 @@ app.get('/', (req, res) => {
     "timestamp" : Date.now()
   });
 });
+
+/*
+var app = http.createServer(function(req,res){
+  res.setHeader('Content-Type', 'application/json');
+  res.json({
+    "message": "My name is Eesha Gadhia", 
+    "timestamp" : Date.now()
+  });
+});
+*/
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`); 
