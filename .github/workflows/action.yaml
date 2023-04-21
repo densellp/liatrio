@@ -8,7 +8,7 @@ env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   SERVICE: 'liatrio-deploy'
   REGION: 'us-west1'
-  IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/liatrio:latest
+  IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/liatrio
 
 jobs:
   build-run-test:
@@ -35,7 +35,7 @@ jobs:
         run: docker tag liatrio:latest ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
 
       - name: Push Image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise
 
   deploy-cloud:
     runs-on: ubuntu-latest
@@ -54,6 +54,8 @@ jobs:
         run: gcloud auth configure-docker
 
       - name: Push to Google Container Registry
-        run: docker push $IMAGE_NAME
+        run: |-
+          docker tag ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise $IMAGE_NAME
+          docker push $IMAGE_NAME
 
 
