@@ -55,7 +55,7 @@ jobs:
 
       - name: Push to Google Container Registry
         run: |-
-          docker pull ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise
           docker tag ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise $IMAGE_NAME
           docker push $IMAGE_NAME
 
