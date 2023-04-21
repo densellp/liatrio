@@ -4,6 +4,12 @@ on:
   push:
     branches: ["main"]
 
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  SERVICE: 'liatrio-deploy'
+  REGION: 'us-west1'
+  IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/liatrio:latest
+
 jobs:
   build-run-test:
     runs-on: ubuntu-latest
@@ -30,5 +36,24 @@ jobs:
 
       - name: Push Image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/liatrio-exercise:latest
+
+  deploy-cloud:
+    runs-on: ubuntu-latest
+    needs: build-run-test
+
+    steps:
+      - name: Authenticate Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json : ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
+
+      - name: Configure Docker for GCP
+        run: gcloud auth configure-docker
+
+      - name: Push to Google Container Registry
+        run: docker push $IMAGE_NAME
 
 
